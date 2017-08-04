@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/home.css" />
+		<!-- 框架 -->
+		<script type="text/javascript" src="../../script/api.js"></script>
+		<script type="text/javascript" src="./js/base/jquery.js" ></script>
+        <script type="text/javascript" src="./js/base/jquery.mobile.touch.min.js"></script>
+		<script type="text/javascript" src="./js/base/touchslider.js"></script>
+		<script type="text/javascript" src="./js/base/laytpl.js"></script>
+		<script type="text/javascript" src="./js/base/jquery-eapi-1.0.js" ></script>
+		<!-- 基本 -->
+		<script type="text/javascript" src="./js/base/config.js"></script>
+		<script type="text/javascript" src="./js/base/page_base.js"></script>
+		<!-- 业务 -->
+		<script type="text/javascript" src="./js/page/home.js"></script>
+	</head>
+	<body>
+		<!--搜索-->
+		<div class="search">
+			<img src="./images/logo.jpg" class="logo"/>
+			<a class="img_input" href="javascript:void(0)">搜索商品</a>
+		</div>
+
+		<div class="box" style="background-color:#FFFFFF;">
+			<ul class="nav-menu">
+				<li>
+					<a id="scarcity_classify_a" href="javascript:void(0);" title="稀缺新特药"> <span class="nav-icon"><img src="../../image/scarcitydrug.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">稀缺新特药</span> </a>
+				</li>
+				<li>
+					<a id="all_classify_a" href="javascript:void(0);" title="找购药"> <span class="nav-icon"><img src="../../image/findbugdrug.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">找购药</span> </a>
+				</li>
+				<li>
+					<a id="doctor_list_a" href="javascript:void(0);" title="咨询医师"> <span class="nav-icon"><img src="../../image/chatdoctor.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">咨询医师</span> </a>
+				</li>
+				<li>
+				    <a id="chronicmanage" href="javascript:void(0);" title="慢病管理"> <span class="nav-icon"><img src="../../image/chronicdisease.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">慢病管理</span> </a>
+- 				</li>
+			</ul>
+		</div>
+		<!--<div class="box" style="background-color:#FFFFFF;">
+			<ul class="nav-menu">
+				<li>
+					<a id="hospital_list_a" href="javascript:void(0);" title="附近医院"> <span class="nav-icon"><img src="./images/nearhospital.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">附近医院</span> </a>
+				</li>
+				<li>
+					<a id="store_list_a" href="javascript:void(0);" title="附近药店"> <span class="nav-icon"><img src="./images/nearpharmacy.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">附近药店</span> </a>
+				</li>
+				<li>
+					<a id="vip_channel_a" href="javascript:void(0);" title="VIP通道"> <span class="nav-icon"><img src="./images/vipchannel.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">VIP通道</span> </a>
+				</li>
+				<li>
+				    <a id="self_help_medical" href="javascript:void(0);" title="自我救助"> <span class="nav-icon"><img src="./images/selfhealth.png" class="responsive" style="height:40px"></span> <span class="nav-text" style="color:#a2a2a2">自我救助</span> </a>
+- 				</li>
+			</ul>
+		</div>-->
+		
+<!--		<br /><br /><br />
+		<span class="sysType">获取操作系统类型</span>
+		<br />
+		<span>
+		<!-- 	<a href="bdapp://map/direction?region=beijing&origin=39.98871,116.43234&destination=name:西直门&mode=driving">驾车路线规划</a> -->
+		<!-- 	<a href="bdapp://map/direction?region=beijing&origin=39.98871,116.43234&destination=西直门&mode=driving"></a> 
+		</span>
+		
+		<a class="marker">演示地图标注</a>-->
+		
+		<div style="margin-bottom: 3px"></div>
+		<div class="box product">
+			<div class="box-hd">
+				<h2>当季热销商品</h2>
+			</div>
+			<script id="goods_html_templet" type="text/laytpl">
+				{{# for(var i = 0, len = d.length; i < len; i++){ }}
+					<dl class="dl-horizontal clearfix goods-item" goods-id="{{ d[i].goods_id }}">
+			            <dt>
+			                <a title="{{ d[i].name }}" class="pimg" href="javascript:void(0);">
+			                	{{# var img_url = getImgByFs(d[i].thumbnail); }}
+			                    <img class="img-thumbnail" src="{{ img_url }}" alt="{{ d[i].name }}" width="80" height="80" />
+			                </a>
+			            </dt>
+			            <dd>
+			                <a title="{{ d[i].name }}" class="pname" href="javascript:void(0);">{{ d[i].name }}</a>
+			                <p class="minprice">
+			                    <!-- <span class="fuhao">¥</span><strong>{{ d[i].price }}</strong> -->
+			                    <!--<p style="font-size: 12px; color: #999999;">已卖出{{d[i].buy_count}}件</p>-->
+			                </p>
+			                <p class="mb c51"></p>
+			                <p class="cr" style="font-size: 12px; float: right; color: #999999; margin-right: 10px;">来自:{{ d[i].store_name }}</p>
+			            </dd>
+			        </dl>
+				{{# } }}
+
+			</script>
+			<div class="box-bd" id="selling_html_view">
+
+			</div>
+		</div>
+		<!---->
+		<div style="margin-bottom: 3px"></div>
+	</div>
+	</body>
+</html>
